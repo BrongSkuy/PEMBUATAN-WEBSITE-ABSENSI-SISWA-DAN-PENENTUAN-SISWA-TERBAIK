@@ -1,0 +1,39 @@
+# dependencies
+absensi-siswa-app/node_modules
+absensi-siswa-app/.pnp
+absensi-siswa-app/.pnp.*
+absensi-siswa-app/.yarn/*
+!absensi-siswa-app/.yarn/patches
+!absensi-siswa-app/.yarn/plugins
+!absensi-siswa-app/.yarn/releases
+!absensi-siswa-app/.yarn/versions
+
+# testing
+absensi-siswa-app/coverage
+
+# next.js
+absensi-siswa-app/.next/
+absensi-siswa-app/out/
+
+# production
+absensi-siswa-app/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+absensi-siswa-app/.env*
+
+# vercel
+absensi-siswa-app/.vercel
+
+# typescript
+absensi-siswa-app/*.tsbuildinfo
+absensi-siswa-app/next-env.d.ts
