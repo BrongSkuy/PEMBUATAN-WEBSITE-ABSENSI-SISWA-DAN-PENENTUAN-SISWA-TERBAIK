@@ -45,7 +45,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { mockStudents, mockKelas, type Student } from "@/lib/mock-data";
+import { mockStudents, mockKelas } from "@/lib/mock-data";
 
 export default function AdminSiswaPage() {
   const [search, setSearch] = useState("");
@@ -71,6 +71,7 @@ export default function AdminSiswaPage() {
           variant="outline"
           size="sm"
           className="gap-2 border-navy-200 text-navy-600 hover:bg-navy-50"
+          onClick={() => toast.info("Fitur download template akan tersedia saat database aktif.")}
         >
           <Download className="h-4 w-4" />
           Template
@@ -79,6 +80,7 @@ export default function AdminSiswaPage() {
           variant="outline"
           size="sm"
           className="gap-2 border-amber-200 text-amber-700 hover:bg-amber-50"
+          onClick={() => toast.info("Fitur import data akan tersedia saat database aktif.")}
         >
           <Upload className="h-4 w-4" />
           Import

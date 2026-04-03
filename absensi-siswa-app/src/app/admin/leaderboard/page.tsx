@@ -1,6 +1,7 @@
 "use client";
 
-import { Trophy, Download, RotateCcw, Upload, FileSpreadsheet, FileText } from "lucide-react";
+import { Trophy, Download, RotateCcw, Upload, FileSpreadsheet } from "lucide-react";
+import { toast } from "sonner";
 import { PageHeader } from "@/components/shared/page-header";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -50,14 +51,14 @@ export default function AdminLeaderboardPage() {
             </DialogHeader>
             <DialogFooter>
               <Button variant="outline">Batal</Button>
-              <Button variant="destructive">Ya, Reset Semester</Button>
+              <Button variant="destructive" onClick={() => toast.success("Leaderboard berhasil direset untuk semester baru!")}>Ya, Reset Semester</Button>
             </DialogFooter>
           </DialogContent>
         </Dialog>
-        <Button variant="outline" size="sm" className="gap-2 border-emerald-200 text-emerald-700 hover:bg-emerald-50">
+        <Button variant="outline" size="sm" className="gap-2 border-emerald-200 text-emerald-700 hover:bg-emerald-50" onClick={() => toast.info("Fitur export Excel akan tersedia saat database aktif.")}>
           <Download className="h-4 w-4" /> Export Excel
         </Button>
-        <Button variant="outline" size="sm" className="gap-2 border-navy-200 text-navy-600 hover:bg-navy-50">
+        <Button variant="outline" size="sm" className="gap-2 border-navy-200 text-navy-600 hover:bg-navy-50" onClick={() => toast.info("Fitur export PDF akan tersedia saat database aktif.")}>
           <Download className="h-4 w-4" /> Export PDF
         </Button>
       </PageHeader>
@@ -125,7 +126,7 @@ export default function AdminLeaderboardPage() {
             <CardTitle className="text-base">Arsip Historis</CardTitle>
             <CardDescription>File rekapitulasi semester sebelumnya</CardDescription>
           </div>
-          <Button variant="outline" size="sm" className="gap-2">
+          <Button variant="outline" size="sm" className="gap-2" onClick={() => toast.info("Fitur upload arsip akan tersedia saat database aktif.")}>
             <Upload className="h-4 w-4" /> Upload Arsip
           </Button>
         </CardHeader>
@@ -144,7 +145,7 @@ export default function AdminLeaderboardPage() {
                     </p>
                   </div>
                 </div>
-                <Button variant="ghost" size="sm" className="gap-1 text-navy-600">
+                <Button variant="ghost" size="sm" className="gap-1 text-navy-600" onClick={() => toast.info(`Mengunduh ${arc.namaFile}...`)}>
                   <Download className="h-3.5 w-3.5" /> Unduh
                 </Button>
               </div>

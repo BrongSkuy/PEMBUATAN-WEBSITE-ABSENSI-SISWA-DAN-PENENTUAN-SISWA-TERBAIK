@@ -1,6 +1,7 @@
 "use client";
 
 import { Calendar, Plus, Archive, ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { toast } from "sonner";
 import { PageHeader } from "@/components/shared/page-header";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -32,7 +33,7 @@ export default function AdminTahunAjaranPage() {
         description="Kelola tahun ajaran dan periode semester"
         icon={Calendar}
       >
-        <Button variant="outline" size="sm" className="gap-2 border-amber-200 text-amber-700 hover:bg-amber-50">
+        <Button variant="outline" size="sm" className="gap-2 border-amber-200 text-amber-700 hover:bg-amber-50" onClick={() => toast.info("Fitur kenaikan kelas akan tersedia saat database aktif.")}>
           <ArrowUpRight className="h-4 w-4" /> Kenaikan Kelas
         </Button>
         <Dialog>
@@ -62,7 +63,7 @@ export default function AdminTahunAjaranPage() {
             </div>
             <DialogFooter>
               <Button variant="outline">Batal</Button>
-              <Button className="bg-navy-500 hover:bg-navy-600">Buat</Button>
+              <Button className="bg-navy-500 hover:bg-navy-600" onClick={() => toast.success("Tahun ajaran baru berhasil dibuat!")}>Buat</Button>
             </DialogFooter>
           </DialogContent>
         </Dialog>
@@ -101,7 +102,7 @@ export default function AdminTahunAjaranPage() {
                   <span className="text-muted-foreground">siswa terdaftar</span>
                 </div>
                 {ta.status === "selesai" && (
-                  <Button variant="ghost" size="sm" className="gap-1 text-muted-foreground hover:text-navy-600">
+                  <Button variant="ghost" size="sm" className="gap-1 text-muted-foreground hover:text-navy-600" onClick={() => toast.info(`Data ${ta.tahun} Semester ${ta.semester} diarsipkan.`)}>
                     <Archive className="h-3.5 w-3.5" /> Arsip
                   </Button>
                 )}

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { UserCog, Search, KeyRound, Ban, CheckCircle2, Filter } from "lucide-react";
+import { toast } from "sonner";
 import { PageHeader } from "@/components/shared/page-header";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -13,7 +14,6 @@ import {
 import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from "@/components/ui/select";
-import { mockUsers } from "@/lib/mock-data";
 
 const akun = [
   { id: "1", username: "admin001", nama: "Drs. Haryanto, M.Pd", role: "ADMIN", status: "aktif" },
@@ -96,15 +96,15 @@ export default function AdminAkunPage() {
                   </TableCell>
                   <TableCell className="text-right pr-6">
                     <div className="flex items-center justify-end gap-1">
-                      <Button variant="ghost" size="sm" className="gap-1 h-8 text-xs text-navy-600 hover:bg-navy-50">
+                      <Button variant="ghost" size="sm" className="gap-1 h-8 text-xs text-navy-600 hover:bg-navy-50" onClick={() => toast.info(`Password ${a.nama} berhasil direset!`)}>
                         <KeyRound className="h-3.5 w-3.5" /> Reset Password
                       </Button>
                       {a.status === "aktif" ? (
-                        <Button variant="ghost" size="sm" className="gap-1 h-8 text-xs text-red-500 hover:bg-red-50">
+                        <Button variant="ghost" size="sm" className="gap-1 h-8 text-xs text-red-500 hover:bg-red-50" onClick={() => toast.success(`Akun ${a.nama} berhasil dinonaktifkan!`)}>
                           <Ban className="h-3.5 w-3.5" /> Nonaktifkan
                         </Button>
                       ) : (
-                        <Button variant="ghost" size="sm" className="gap-1 h-8 text-xs text-emerald-600 hover:bg-emerald-50">
+                        <Button variant="ghost" size="sm" className="gap-1 h-8 text-xs text-emerald-600 hover:bg-emerald-50" onClick={() => toast.success(`Akun ${a.nama} berhasil diaktifkan!`)}>
                           <CheckCircle2 className="h-3.5 w-3.5" /> Aktifkan
                         </Button>
                       )}

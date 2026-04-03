@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Settings2, Save, AlertTriangle, CheckCircle2, Info } from "lucide-react";
+import { toast } from "sonner";
 import { PageHeader } from "@/components/shared/page-header";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -26,7 +27,12 @@ export default function AdminSpkPage() {
   };
 
   const handleSave = () => {
-    if (isValid) setSaved(true);
+    if (isValid) {
+      setSaved(true);
+      toast.success("Bobot kriteria SPK berhasil disimpan!");
+    } else {
+      toast.error(`Total bobot harus 100%. Saat ini: ${totalBobot}%`);
+    }
   };
 
   return (

@@ -2,14 +2,13 @@
 
 import { useState } from "react";
 import { School, Plus, Edit, Trash2 } from "lucide-react";
+import { toast } from "sonner";
 import { PageHeader } from "@/components/shared/page-header";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
-import {
-  Table, TableBody, TableCell, TableHead, TableHeader, TableRow,
-} from "@/components/ui/table";
+
 import {
   Dialog, DialogContent, DialogDescription, DialogFooter,
   DialogHeader, DialogTitle, DialogTrigger,
@@ -67,7 +66,7 @@ export default function AdminKelasPage() {
             </div>
             <DialogFooter>
               <Button variant="outline" onClick={() => setDialogOpen(false)}>Batal</Button>
-              <Button className="bg-navy-500 hover:bg-navy-600" onClick={() => setDialogOpen(false)}>Simpan</Button>
+              <Button className="bg-navy-500 hover:bg-navy-600" onClick={() => { setDialogOpen(false); toast.success("Kelas berhasil ditambahkan!"); }}>Simpan</Button>
             </DialogFooter>
           </DialogContent>
         </Dialog>
@@ -89,10 +88,10 @@ export default function AdminKelasPage() {
                 <p className="text-sm font-medium">{kelas.waliKelas}</p>
               </div>
               <div className="flex gap-2">
-                <Button variant="outline" size="sm" className="flex-1 gap-1 text-navy-600 hover:bg-navy-50">
+                <Button variant="outline" size="sm" className="flex-1 gap-1 text-navy-600 hover:bg-navy-50" onClick={() => toast.info(`Mengedit kelas ${kelas.namaKelas}...`)}>
                   <Edit className="h-3.5 w-3.5" /> Edit
                 </Button>
-                <Button variant="outline" size="sm" className="gap-1 text-red-500 hover:bg-red-50 hover:text-red-700">
+                <Button variant="outline" size="sm" className="gap-1 text-red-500 hover:bg-red-50 hover:text-red-700" onClick={() => toast.success(`Kelas ${kelas.namaKelas} berhasil dihapus!`)}>
                   <Trash2 className="h-3.5 w-3.5" />
                 </Button>
               </div>

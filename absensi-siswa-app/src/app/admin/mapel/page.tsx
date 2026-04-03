@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { BookOpen, Plus, Edit, Trash2, Search } from "lucide-react";
+import { toast } from "sonner";
 import { PageHeader } from "@/components/shared/page-header";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -59,7 +60,7 @@ export default function AdminMapelPage() {
             </div>
             <DialogFooter>
               <Button variant="outline" onClick={() => setDialogOpen(false)}>Batal</Button>
-              <Button className="bg-navy-500 hover:bg-navy-600" onClick={() => setDialogOpen(false)}>Simpan</Button>
+              <Button className="bg-navy-500 hover:bg-navy-600" onClick={() => { setDialogOpen(false); toast.success("Mata pelajaran berhasil ditambahkan!"); }}>Simpan</Button>
             </DialogFooter>
           </DialogContent>
         </Dialog>
@@ -93,8 +94,8 @@ export default function AdminMapelPage() {
                   <TableCell>{mapel.guruPengampu}</TableCell>
                   <TableCell className="text-right pr-6">
                     <div className="flex items-center justify-end gap-1">
-                      <Button variant="ghost" size="icon" className="h-8 w-8 text-navy-500 hover:bg-navy-50" aria-label={`Edit ${mapel.namaMapel}`}><Edit className="h-3.5 w-3.5" /></Button>
-                      <Button variant="ghost" size="icon" className="h-8 w-8 text-red-500 hover:bg-red-50" aria-label={`Hapus ${mapel.namaMapel}`}><Trash2 className="h-3.5 w-3.5" /></Button>
+                      <Button variant="ghost" size="icon" className="h-8 w-8 text-navy-500 hover:bg-navy-50" aria-label={`Edit ${mapel.namaMapel}`} onClick={() => toast.info(`Mengedit ${mapel.namaMapel}...`)}><Edit className="h-3.5 w-3.5" /></Button>
+                      <Button variant="ghost" size="icon" className="h-8 w-8 text-red-500 hover:bg-red-50" aria-label={`Hapus ${mapel.namaMapel}`} onClick={() => toast.success(`${mapel.namaMapel} berhasil dihapus!`)}><Trash2 className="h-3.5 w-3.5" /></Button>
                     </div>
                   </TableCell>
                 </TableRow>

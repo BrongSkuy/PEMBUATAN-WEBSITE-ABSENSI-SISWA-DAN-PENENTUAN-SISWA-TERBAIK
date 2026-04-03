@@ -181,6 +181,9 @@ export function Topbar({ user, onMenuClick }: TopbarProps) {
           <CommandList>
             <CommandEmpty>Tidak ada yang ditemukan.</CommandEmpty>
             <CommandGroup heading="Halaman Admin">
+              <CommandItem onSelect={() => { setOpenSearch(false); router.push("/admin"); }}>
+                Dashboard
+              </CommandItem>
               <CommandItem onSelect={() => { setOpenSearch(false); router.push("/admin/siswa"); }}>
                 Data Siswa
               </CommandItem>
@@ -190,8 +193,20 @@ export function Topbar({ user, onMenuClick }: TopbarProps) {
               <CommandItem onSelect={() => { setOpenSearch(false); router.push("/admin/kelas"); }}>
                 Data Kelas
               </CommandItem>
+              <CommandItem onSelect={() => { setOpenSearch(false); router.push("/admin/mapel"); }}>
+                Mata Pelajaran
+              </CommandItem>
+              <CommandItem onSelect={() => { setOpenSearch(false); router.push("/admin/spk"); }}>
+                Konfigurasi SPK
+              </CommandItem>
+              <CommandItem onSelect={() => { setOpenSearch(false); router.push("/admin/tahun-ajaran"); }}>
+                Tahun Ajaran
+              </CommandItem>
               <CommandItem onSelect={() => { setOpenSearch(false); router.push("/admin/leaderboard"); }}>
                 Peringkat Siswa (Leaderboard)
+              </CommandItem>
+              <CommandItem onSelect={() => { setOpenSearch(false); router.push("/admin/akun"); }}>
+                Manajemen Akun
               </CommandItem>
             </CommandGroup>
             <CommandGroup heading="Aksi Cepat">
